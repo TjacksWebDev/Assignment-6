@@ -7,25 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVReader {
-    public List<SalesData> loadData(String fileName) throws IOException {
-        List<SalesData> salesData = new ArrayList<>();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(fileName));
-            // Read the header from the file and ignore it
-            String line = reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                String[] values = line.split(",");
-                if (values.length == 2) {
-                    salesData.add(new SalesData(values[0], values[1]));
-                } else {
-                    System.out.println("Invalid line: " + line);
-                }
-            }
-            return salesData;
-        } finally {
-            if (reader != null)
-                reader.close();
-        }
-    }
+	public List<SalesData> loadData(String fileName) throws IOException {
+		List<SalesData> salesData = new ArrayList<>();
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(fileName));
+			// Read the header from the file and ignore it
+			String line = reader.readLine();
+			while ((line = reader.readLine()) != null) {
+				String[] values = line.split(",");
+				if (values.length == 2) {
+					salesData.add(new SalesData(values[0], values[1]));
+				} else {
+					System.out.println("Invalid line: " + line);
+				}
+			}
+			return salesData;
+		} finally {
+			if (reader != null)
+				reader.close();
+		}
+	}
 }
